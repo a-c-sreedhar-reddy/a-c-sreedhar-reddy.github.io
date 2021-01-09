@@ -1,0 +1,25 @@
+body {
+  background-color: #263056;
+  color: white;
+  font-family: Roboto Mono, monospace;
+}
+a {
+  text-decoration: none;
+  border-bottom: 1px solid #ff6f61;
+  color: white;
+}
+a:hover {
+  background: #ff6f61;
+  color: #fff;
+}
+header {
+  color: rgb(255, 111, 97);
+  margin-bottom: 3.5em;
+}
+.details {
+  line-height: 1.85;
+}
+.app {
+  padding: 40px 10%;
+  font-size: 16px;
+}
