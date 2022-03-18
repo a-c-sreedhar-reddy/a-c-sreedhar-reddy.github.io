@@ -1,0 +1,75 @@
+<html>
+  <head>
+    <link href="../index.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>blogs - a c sreedhar reddy</title>
+    <link rel="shortcut icon" href="./favicon.ico" />
+  </head>
+  <body>
+    <div class="app">
+      <header>
+        <a href="/">a c sreedhar reddy</a>
+        <a href="/blogs">blogs</a>
+        <h2>
+          Tell the reducer what happened. Not what to update the state with.
+        </h2>
+      </header>
+      <main style="max-width: 40em; margin-left: 5rem">
+        <p>
+          Reducer is a function which takes the <b> current state </b> and an
+          <b>action</b> as inputs and returns a new state as an output.
+        </p>
+        <p>
+          All the logic to update state is colocated at a single place. This
+          helps us in managing the state complexity. We can be sure that no
+          other part of the code outside this function can update the state.
+        </p>
+        <br />
+        <p>
+          In general action should not be the new state which we want to set,
+          but should be the event that has occured.
+        </p>
+        <br />
+        <p>
+          Consider we have a login flow with multiple modals. And clicking on
+          next buttons opens a new modal.
+        </p>
+        <p>To manage this we might need a state of the following type</p>
+        <code>
+          <pre style="background-color: black">
+type state = {
+  modal: "login" | "signUp" | "joinTeam" | "invite";
+  otherProperties: any;
+};
+	  </pre
+          >
+        </code>
+        <p>
+          Now the actions of this reducer should be "SignupSuccess" or
+          "LoginSuccess" or "JoinedTeam" or "Invited" rather than a single
+          "updateModal"
+        </p>
+        <p>
+          If we just have a single action "updateModal" then we would not get
+          much from using reducer pattern. since anyone at anypoint of time with
+          any payload can call this action.
+        </p>
+        <p>
+          On the other hand if we have actions like "SignupSuccess" or
+          "LoginSuccess" or "JoinedTeam" or "Invited", then we can generate new
+          state based on the existing state and action.
+        </p>
+        <p>
+          So in the future if we want to extend this application, then we can
+          directly go to this reducer and change the part where we handle the
+          corresponding action
+        </p>
+      </main>
+    </div>
+  </body>
+</html>
